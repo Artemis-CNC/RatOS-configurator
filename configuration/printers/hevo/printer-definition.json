@@ -1,0 +1,123 @@
+{
+	"$schema": "../printer-definition.schema.json",
+	"name": "HEVO",
+	"description": "Hevo CoreXY printer which comes in 4 sizes ",
+	"releaseDate": "2025-01-22",
+	"manufacturer": "Artemis-CNC",
+	"documentationLink": "https://os.ratrig.com/docs/printers/v-core-3",
+	"image": "hevo.png",
+	"template": "hevo-printer.template.cfg",
+	"driverCountRequired": 5,
+	"sizes": {
+		"220": {
+			"x": 220,
+			"y": 220,
+			"z": 300
+		},
+		"235": {
+			"x": 235,
+			"y": 235,
+			"z": 300
+		},
+		"256": {
+			"x": 256,
+			"y": 256,
+			"z": 300
+		},
+		"300": {
+			"x": 285,
+			"y": 260,
+			"z": 300
+		}
+	},
+	"speedLimits": {
+		"basic": {
+			"accel": 1500,
+			"velocity": 200,
+			"z_accel": 30,
+			"z_velocity": 15,
+			"travel_accel": 1500,
+			"travel_velocity": 200
+		},
+		"performance": {
+			"accel": 3000,
+			"velocity": 400,
+			"z_accel": 150,
+			"z_velocity": 50,
+			"travel_velocity": 200,
+			"travel_accel": 1500
+		}
+	},
+	"defaults": {
+		"board": "btt-skr-pro-12",
+		"toolheads": [
+			{
+				"axis": "x",
+				"extruder": "clockwork",
+				"hotend": "mosquito",
+				"partFan": "2pin",
+				"hotendFan": "2pin",
+				"probe": "bltouch",
+				"xEndstop": "endstop",
+				"yEndstop": "endstop"
+			}
+		],
+		"rails": [
+			{
+				"axis": "x",
+				"axisDescription": "The A motor in the CoreXY system, located at the front left of the printer",
+				"current": 1.1,
+				"driver": "BTT-TMC2209-13",
+				"stepper": "US-17HS4401",
+				"rotationDistance": 40,
+				"homingSpeed": 50,
+				"performanceMode": {
+					"current": 0.8
+				}
+			},
+			{
+				"axis": "y",
+				"axisDescription": "The B motor in the CoreXY system, located at the front right of the printer",
+				"current": 1.1,
+				"driver": "BTT-TMC2209-13",
+				"stepper": "US-17HS4401",
+				"rotationDistance": 40,
+				"homingSpeed": 50,
+				"performanceMode": {
+					"current": 0.8
+				}
+			},
+			{
+				"axis": "z",
+				"axisDescription": "The left Z axis motor moves the print head up and down.",
+				"current": 1.1,
+				"driver": "BTT-TMC2209-13",
+				"stepper": "42SHDC3025-24B",
+				"rotationDistance": 4,
+				"homingSpeed": 10,
+				"performanceMode": {
+					"current": 0.8
+				}
+			},
+			{
+				"axis": "z1",
+				"axisDescription": "The right Z axis motor moves the print head up and down.",
+				"current": 1.1,
+				"driver": "BTT-TMC2209-13",
+				"stepper": "42SHDC3025-24B",
+				"rotationDistance": 4,
+				"performanceMode": {
+					"current": 0.8
+				}
+			},
+			{
+				"axis": "extruder",
+				"axisDescription": "The extruder motor used for pushing filament through the toolhead",
+				"rotationDistance": 0,
+				"current": 0.707,
+				"driver": "BTT-TMC2209-13",
+				"stepper": "US-17HS4023"
+			}
+		]
+	}
+}
